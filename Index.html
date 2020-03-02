@@ -313,7 +313,7 @@
 	$(".getUserInfo").on("click", function getUserInfo() {
 	  alert("111111");
       var result = window.bridge.getUserInfo({
-        infoType: "userInfo"
+        infoType: "userInfo,token"
       }, function (result) {
         showResult(result)
       })
