@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   
+    <link rel="shortcut icon" href="https://cdn14.ttpaicdn.com/frontrec/common/images/favicon.ico">
+    <link rel="dns-prefetch" href="https://cdn11.ttpaicdn.com">
+    <link rel="dns-prefetch" href="https://cdn12.ttpaicdn.com">
+    <link rel="dns-prefetch" href="https://cdn13.ttpaicdn.com">
+    <link rel="dns-prefetch" href="https://cdn14.ttpaicdn.com">
+    <link rel="dns-prefetch" href="https://cdn15.ttpaicdn.com">
+    <link rel="dns-prefetch" href="https://pic001.ttpaicdn.com">
+    <link rel="preload" href="https://cdn15.ttpaicdn.com/frontrec/dist/js/common.js?v=1560154388" as="script">
+
+    
+    
+	<script type="text/javascript" src="https://cdn01.ttpaicdn.com/frontmonitorsdk/dist/js/main.js?v=1560154388" data-pid="53" id="pid"></script>
+<script type="text/javascript">
+var reportError = window.reportError || function(){};
+</script>
+<script src="https://cdn15.ttpaicdn.com/ttpai/js/bridge.js?v=1560154388" type="text/javascript" charset="utf-8"></script>
+    <meta name="keywords" content="二手车,二手车交易市场,二手车评估,二手车估价,二手车出售,二手车个人出售,卖车, 二手车拍卖网">
+    <meta name="description" content="天天拍车，高价卖车、免费检测、线上竞拍、包办手续全程零费用的二手车卖车服务平台! 二手车拍卖网,二手车交易市场,二手车评估,二手车估价,二手车个人出售,卖车。">
+    <title>推荐有礼</title>
+    <link rel="preload" href="https://cdn14.ttpaicdn.com/frontrec/dist/js/index.js?v=1560154388" as="script"> 
+    <script type="text/javascript">
+        var someOpts = {
+            name: '车主',
+            brand: '品牌',
+            source: 'APPBM',
+            activity: '',
+            family:'车系',
+            utmSource:''        }
+    </script>
+<link href="https://cdn14.ttpaicdn.com/frontrec/dist/css/index.css?v=1560154388" rel="stylesheet">
+<script src="https://cdn15.ttpaicdn.com/frontrec/plugins/setApp/main.min.js?v=1560154388" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<!-- 微信小程序状态栏 placeholder -->
+	<div class="statusbar"></div>
+	<input type="hidden" id="recSource" value="APPBM"/>
+    <header class="header clearfix">
+        <span class="title show">推荐有礼</span>
+        
+        
+	        <div class="subnav">
+	          <i class="icon icon-share hide recShareBtn"></i>
+	        </div>
+        
+    </header>
+    <form id="loginForm"> 
+        <input type="hidden" name="name" value="车主"/>
+			<input type="hidden" name="ttp" value=""/>
+			<input type="hidden" name="brand" value="品牌"/>
+			<input type="hidden" name="family" value="车系"/>
+			<input type="hidden" name="source" value="APPBM" utm-value="23-23-3"/>
+			<input type="hidden" name="utmSource" value=""/>
+			<input type="hidden" name="utmMedium" value=""/>
+			<input type="hidden" name="utmCampaign" value=""/>
+			<input type="hidden" name="utmContent" value=""/>
+			<input type="hidden" name="utmTerm" value=""/>
+			<input type="hidden" name="city" value=""/>
+			<input type="hidden" name="unionId" value=""/>
+			<input type="hidden" name="openId" value=""/>
+        <div id="login" class="login-container"></div> 
+    </form>
+    <section class="banner">
+    	<img src="https://cdn15.ttpaicdn.com/frontrec/common/images/index-banner.png" alt="">
+    </section>
+    <section class="rec-pannel" id="apply"></section>
+    <section class="awards-number more-link rec-pannel">
+    	<p>已经有<span id="winner"></span>人获得推荐奖励</p>
+    </section>
+    <section class="more-link rec-pannel"> 
+    	<a href="javascript:void(0)" data-url="/newRec/recUserList?source=APPBM&utmSource=&activity=&openId=&unionId=" data-ga="" data-category="互动" data-event="点击查看推荐记录" class="recListBtn">查看推荐记录</a> 
+    </section> 
+    <section id="login" class="login-container">
+    </section>
+   
+    <section class="rec-pannel rules-pannel">
+		<div class="rec-rule">
+			<p class="rule-title"><span>活动规则</span></p>
+			<p class="useful-life">1. 帮好友在天天拍车报名并成功卖车，您将获得500元现金奖励，多邀多得；</p>
+			<p>2. 仅限首次在天天拍车卖车的好友，且每日最多可成功推荐5位好友；</p>
+			<p>3. 特别提醒：帮好友报名后，需在15天内成功卖车才有500元奖励哦，超过15天将无法获得奖励；</p>
+			<p>4. 本活动适用于天天拍车全国各门店；</p>
+			<p>5. 天天拍车（上海谨务汽车技术咨询有限公司）在法律允许的范围内对活动保留最终解释权。</p>
+		</div>
+    	<div class="rec-rule">
+    		<p class="rule-title"><span>奖励规则</span></p>
+    		<p>1.现金奖励将通过银行转账的形式直接汇入您所提供的银行账户中；</p>
+    		<p>2.请您务必核实所填写的银行账户信息正确无误，因您填写的信息错误或操作失误等原因导致未能成功获得奖励的，天天拍车概不负责；</p>
+    		<p>3.提交账户信息后，需点击提现申请，才可获得奖励。</p>
+    	</div>
+    </section>
+    <input type="hidden" name="" value="/newRec/getRecValidate?openId=&appToken=null|null|null" id="getRecValidateUrl">
+    <script src="https://cdn15.ttpaicdn.com/frontrec/dist/js/common.js?v=1560154388" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdn14.ttpaicdn.com/frontrec/dist/js/index.js?v=1560154388"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script> 
+   </body>
+</html>

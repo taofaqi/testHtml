@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>在超链接中使用事件</title>
+		<meta http-equiv="content-type" content="text/html;charset=gb2312">
+		<script type="text/javascript" language="javascript">
+	<!--
+	//多添加几个换行，让效果明显
+	for (var i=0;i<3;i++){
+		document.write("<br>");
+	}
+	-->
+	</script>
+	</head>
+	<body>
+
+	<a href="ttpaidea://dealer/check_detail?auctionId=32535194&marketId=1004664" >跳转检测报告</a>
+	<a href="https://a.app.qq.com/o/simple.jsp?pkgname=com.ttpaiBusi.www&ios_scheme=ttpaidea%3a%2f%2fdealer%2fhome%3ftab%3d2">应用宝</a>
+	</body>
+</html>

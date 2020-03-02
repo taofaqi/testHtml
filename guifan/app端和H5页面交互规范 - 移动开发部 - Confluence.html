@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                    <title>app端和H5页面交互规范 - 移动开发部 - Confluence</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="confluence-base-url" name="confluence-base-url" content="http://confluence.ttpai.cn">
+
+<meta id="atlassian-token" name="atlassian-token" content="b92c6be6a4a4e6d5c36c25c3e7d64491805e8c34">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="mobileteam">
+<script type="text/javascript">
+        var contextPath = '';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1533788849933">
+        
+    
+        
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="ajs-discovered-plugin-features" content="{&quot;com.atlassian.confluence.plugins.confluence-jira-metadata&quot;:[&quot;linked-issues-dropdown&quot;],&quot;com.atlassian.confluence.plugins.confluence-previews&quot;:[&quot;add-annotations&quot;]}">
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-show-space-welcome-dialog" content="true">
+            <meta name="ajs-keyboardshortcut-hash" content="5e7abd8f70148613981f106ed16b1fce">
+            <meta name="ajs-is-space-admin" content="false"> <meta name="ajs-has-space-config" content="false">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 334px;}.theme-default .ia-splitter #main {margin-left: 334px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            
+
+    
+            
+    
+    
+            <meta name="ajs-page-id" content="6759479">
+            <meta name="ajs-latest-page-id" content="6759479">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="app端和H5页面交互规范">
+            <meta name="ajs-parent-page-title" content="规范文档">
+            <meta name="ajs-parent-page-id" content="5446369">
+            <meta name="ajs-space-key" content="mobileteam">
+            <meta name="ajs-space-name" content="移动开发部">
+            <meta name="ajs-jira-metadata-count" content="-1">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="true">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-user-display-name" content="陶发齐">
+            <meta name="ajs-editor.loader.comment.resources" content="&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/a5681e7592f3e0fbd5aeb65433cf36c7/_/download/contextbatch/css/comment-editor,-viewcontent,-plugin.quick.comment.pre,-page/batch.css&quot; media=&quot;all&quot;&gt;
+">
+            <meta name="ajs-context-path" content="">
+            <meta name="ajs-base-url" content="http://confluence.ttpai.cn">
+            <meta name="ajs-version-number" content="5.7.4">
+            <meta name="ajs-build-number" content="5788">
+            <meta name="ajs-remote-user" content="faqi.tao">
+            <meta name="ajs-remote-user-key" content="ff8080815e57c1130161f42ca542000c">
+            <meta name="ajs-current-user-fullname" content="陶发齐">
+            <meta name="ajs-current-user-avatar-url" content="/images/icons/profilepics/default.png">
+            <meta name="ajs-static-resource-url-prefix" content="/s/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20965760">
+            <meta name="ajs-user-locale" content="zh_CN">
+            <meta name="ajs-enabled-dark-features" content="previews.sharing,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,file-annotations.likes,confluence-inline-comments-resolved,confluence-inline-comments-rich-editor,quick-reload-inline-comments,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,file-annotations,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,confluence-inline-comments,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,file-notifications,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,view-file-thumbnail-polling,previews.sharing.pushstate,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,previews.versions,confluence-inline-comments-dangling-comment,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent">
+            <meta name="ajs-atl-token" content="b92c6be6a4a4e6d5c36c25c3e7d64491805e8c34">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="yyyy-M-d">
+            <meta name="ajs-editor.loader.resources" content="&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/3dc0a56b7177055d54727fd217555781-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/ca06002c5d973cacde48f4f76f4133a3/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general,-page,-plugin.quick.comment.pre/batch.css&quot; media=&quot;all&quot;&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/ca06002c5d973cacde48f4f76f4133a3/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general,-page,-plugin.quick.comment.pre/batch.css?media=%28max-width%3A+1450px%29&quot; media=&quot;(max-width: 1450px)&quot;&gt;
+&lt;!--[if lt IE 9]&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/ca06002c5d973cacde48f4f76f4133a3/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general,-page,-plugin.quick.comment.pre/batch.css?conditionalComment=lt+IE+9&quot; media=&quot;all&quot;&gt;
+&lt;![endif]--&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/s/d5349d393e09c0738c5bce55fa1f00fc-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/ca06002c5d973cacde48f4f76f4133a3/_/download/contextbatch/js/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general,-page,-plugin.quick.comment.pre/batch.js?locale=zh-CN&quot; &gt;&lt;/script&gt;
+">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="http://confluence.ttpai.cn/s/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="http://confluence.ttpai.cn/s/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="http://confluence.ttpai.cn/opensearch/osd.action" title="Confluence">
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="true">
+            
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.resource-base-url-pattern"]="\"(?:(?:/s/.*?/_)?/download)\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":false,\"conditionsMet\":true,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"\"";
+</script>
+<link type="text/css" rel="stylesheet" href="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/batch(1).css" media="print">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/15/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/15/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/batch(2).css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/336fbff3af7f9736cc848001e32dd2f1-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/d753a9bf5430d8ad0999593e73f67865/_/download/contextbatch/css/page,viewcontent,atl.general,plugin.quick.comment.pre,main,atl.confluence.plugins.pagetree-desktop/batch.css?conditionalComment=lt+IE+9&amp;highlightactions=true&amp;locale=zh-CN" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/batch(3).css" media="all">
+<link type="text/css" rel="stylesheet" href="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/com.atlassian.confluence.ext.newcode-macro-plugin_syntaxhighlighter.css" media="all">
+<link type="text/css" rel="stylesheet" href="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/com.atlassian.confluence.ext.newcode-macro-plugin_sh-theme-confluence.css" media="all">
+<script type="text/javascript" src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/batch.js.下载"></script><style></style><style type="text/css"></style>
+<script type="text/javascript" src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/batch.js(1).下载"></script>
+<script type="text/javascript" src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/batch.js(2).下载"></script>
+<script type="text/javascript" src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/com.atlassian.confluence.ext.newcode-macro-plugin_syntaxhighlighter.js.下载"></script>
+<script type="text/javascript" src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/com.atlassian.confluence.ext.newcode-macro-plugin_syntaxhighlighter-brushes.js.下载"></script>
+<link type="text/css" rel="stylesheet" href="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/colors.css" media="all">
+<link type="text/css" rel="stylesheet" href="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/default-theme.css" media="all">
+
+
+        
+    
+
+        
+
+
+    
+    
+
+    
+                <link rel="canonical" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479">
+        <link rel="shortlink" href="http://confluence.ttpai.cn/x/NyRn">
+    <meta name="wikilink" content="[mobileteam:app端和H5页面交互规范]">
+    <meta name="page-version" content="43">
+
+<link type="text/css" rel="stylesheet" href="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/batch(4).css" media="all"><link type="text/css" rel="stylesheet" href="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/batch(5).css" media="(max-width: 1450px)"><!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/ca06002c5d973cacde48f4f76f4133a3/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general,-page,-plugin.quick.comment.pre/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+            <meta name="ajs-min-editor-height" content="150">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-use-watch" content="true">
+            <meta name="ajs-editor-plugin-resource-prefix" content="/s/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.7.4/_">
+            <meta name="ajs-auto-start" content="false">
+            <meta name="ajs-content-id" content="6759479">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-action-locale" content="zh_CN">
+            <meta name="ajs-user-watching-own-content" content="true">
+            <meta name="ajs-draft-share-id" content="">
+            <meta name="ajs-use-inline-tasks" content="true">
+            <meta name="ajs-heartbeat" content="true">
+            <meta name="ajs-version-comment" content="">
+            <meta name="ajs-draft-id" content="0">
+            <meta name="ajs-new-page" content="false">
+            <meta name="ajs-form-name" content="inlinecommentform">
+            <meta name="ajs-attachment-source-content-id" content="6759479">
+            <meta name="ajs-editor-mode" content="richtext">
+            <meta name="ajs-draft-type" content="page">
+            <meta name="ajs-existing-draft-id" content="0">
+            <meta name="ajs-can-attach-files" content="true">
+                
+            		    <meta name="ajs-max-thumb-width" content="300">
+		    <meta name="ajs-max-thumb-height" content="300">
+		    <meta name="ajs-can-send-email" content="true">
+		    <meta name="ajs-is-dev-mode" content="false">
+		    <meta name="ajs-draft-save-interval" content="30000">
+		    <meta name="ajs-show-hidden-user-macros" content="false">
+		    <meta name="ajs-is-admin" content="false">
+		    <meta name="ajs-confluence.prefs.editor.disable.autocomplete" content="false">
+		    <meta name="ajs-confluence.prefs.editor.disable.autoformat" content="false">
+		    <meta name="ajs-heartbeat-interval" content="30000">
+	
+    </head>
+
+<body onload="placeFocus()" id="com-atlassian-confluence" class=" lighter-editor  theme-default  aui-layout aui-theme-default" data-aui-version="5.7.20">
+
+        
+            <div id="stp-licenseStatus-banner"></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#title-heading">转至内容</a></li>
+    <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#breadcrumbs">转至导航栏</a></li>
+    <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#header-menu-bar">转至主菜单</a></li>
+    <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#navigation">转至动作菜单</a></li>
+    <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#quick-search-query">转至快速搜索</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+    
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation" data-aui-responsive="true"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-controls="app-switcher" aria-haspopup="true" tabindex="0" data-aui-trigger=""><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">已链接程序</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="aui-dropdown2-section"><ul class="nav-links"><li class="nav-link"><a href="http://jira.ttpai.cn/" class="aui-dropdown2-radio interactive" title="http://jira.ttpai.cn/"><span class="nav-link-label">天天拍车</span></a></li><li class="nav-link nav-link-local"><a href="http://confluence.ttpai.cn/" class="aui-dropdown2-radio interactive checked" title="http://confluence.ttpai.cn/"><span class="nav-link-label">Confluence</span></a></li></ul></div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="http://confluence.ttpai.cn/"><img src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/confluence-logo.png" alt="Confluence" data-aui-responsive-header-index="0"></a></h1><ul class="aui-nav __skate" style="width: auto;">
+                            <li>
+            
+        
+        
+<a id="space-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" aria-haspopup="true" aria-owns="space-menu-link-content" title="空间"><span class="browse">空间</span><span class="aui-icon-dropdown"></span></a><div id="space-menu-link-content" class="aui-dropdown2 aui-style-default aui-dropdown2-in-header" aria-hidden="false"></div>
+        </li>
+                    <li>
+            
+    
+        
+<a id="people-directory-link" href="http://confluence.ttpai.cn/peopledirectory.action" class=" aui-nav-imagelink" title="人员">
+            <span>人员</span>
+    </a>
+        </li>
+                                            <li style="display: none;"><a id="aui-responsive-header-dropdown-trigger-0" class=" aui-dropdown2-trigger" aria-owns="aui-responsive-header-dropdown-content-0" aria-controls="aui-responsive-header-dropdown-content-0" aria-haspopup="true" data-aui-trigger="" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">更多<span class="icon aui-icon-dropdown"></span></a><div id="aui-responsive-header-dropdown-content-0" class="aui-dropdown2 aui-style-default"><div class="aui-dropdown2-section"><ul id="aui-responsive-header-dropdown-list-0"></ul></div></div></li><li>
+            
+    
+            
+<a id="create-page-button" href="http://confluence.ttpai.cn/pages/createpage.action?spaceKey=mobileteam&amp;fromPageId=6759479" class="aui-button aui-style aui-button-primary aui-nav-imagelink" title="创建内容 (c)">
+            <span>创建</span>
+    </a>
+        </li>
+        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav __skate">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="http://confluence.ttpai.cn/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">快速搜索</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accesskey="q" autocomplete="off" name="queryString" title="快速搜索 (/或者g ，g)" placeholder="搜索"><input id="quick-search-submit" class="quick-search-submit" type="submit" value="搜索"><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" aria-haspopup="true" aria-owns="help-menu-link-content" title="帮助">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">帮助</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-57/Getting+Help+And+Support" class="    " title="访问Confluence文档首页" target="_blank">
+        在线帮助
+</a>
+</li>
+                                            <li>
+    
+                
+<a id="keyboard-shortcuts-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="    " title="查看可用的键盘快捷方式 (?)">
+        快捷键
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="feed-builder-link" href="http://confluence.ttpai.cn/dashboard/configurerssfeed.action" class="    " title="创建个性化的 RSS源。">
+        RSS源建立器
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-57/whatsnew/iframe?od=false&amp;a=false" class="    " title="">
+        新功能
+</a>
+</li>
+                                            <li>
+    
+                
+<a id="gadget-directory-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="   user-item administration-link " title="浏览小工具">
+        可用的小工具
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="confluence-about-link" href="http://confluence.ttpai.cn/aboutconfluencepage.action" class="    " title="获取关于Confluence的更多信息">
+        关于Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+                    
+        
+            
+<a id="notifications-anchor" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="mw-anchor read aui-nav-imagelink" title="打开通知 (g ，n)"><div class="badge-i aui-icon aui-icon-small aui-iconfont-workbox-empty"></div><span class="badge-w"><span class="badge">0</span></span></a>
+    
+    </li>
+        <li>
+                                            
+        <a id="user-menu-link" class="aui-dropdown2-trigger " aria-haspopup="true" aria-owns="user-menu-link-content" data-username="faqi.tao" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" title="陶发齐">
+                    <div class="aui-avatar aui-avatar-small">
+                <div class="aui-avatar-inner">
+                    <img src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/default.png">
+                </div>
+            </div>
+            <span class="aui-icon-dropdown"></span>
+        </a>
+        <nav id="user-menu-link-content" class="aui-dropdown2 aui-style-default">
+                            <div class="aui-dropdown2-section">
+                    <ul id="user-menu-link-user-preferences" class="aui-list-truncate section-user-preferences first">
+                                                    <li>
+        
+            
+<a id="create-personal-space-link" href="http://confluence.ttpai.cn/spaces/createpersonalspace.action" class="   user-item personal-space create-personal-space-link " title="">
+        添加个人空间…
+</a>
+</li>
+                                                    <li>
+    
+            
+<a id="view-user-history-link" href="http://confluence.ttpai.cn/users/viewuserhistory.action" class="   user-item user-history popup-link " title=" (g ，r)">
+        最近浏览
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul id="user-menu-link-user-content" class="aui-list-truncate section-user-content">
+                                                    <li>
+    
+            
+<a id="view-user-profile-link" href="http://confluence.ttpai.cn/users/viewmyprofile.action" class="   user-item user-profile " title="">
+        用户信息
+</a>
+</li>
+                                                    <li>
+    
+            
+<a id="view-mytasks-link" href="http://confluence.ttpai.cn/plugins/inlinetasks/mytasks.action" class="   user-item list-user-status " title="">
+        任务
+</a>
+</li>
+                                                    <li>
+    
+            
+<a id="user-favourites-link" href="http://confluence.ttpai.cn/users/viewmyfavourites.action" class="   user-item " title="">
+        收藏
+</a>
+</li>
+                                                    <li>
+    
+            
+<a id="user-watches-link" href="http://confluence.ttpai.cn/users/viewnotifications.action" class="   user-item " title="">
+        关注
+</a>
+</li>
+                                                    <li>
+    
+            
+<a id="user-drafts-link" href="http://confluence.ttpai.cn/users/viewmydrafts.action" class="   user-item " title="">
+        草稿
+</a>
+</li>
+                                                    <li>
+    
+            
+<a id="user-network-link" href="http://confluence.ttpai.cn/users/viewfollow.action?username=faqi.tao" class="   follow-link " title="">
+        网络
+</a>
+</li>
+                                                    <li>
+    
+            
+<a id="user-settings-link" href="http://confluence.ttpai.cn/users/viewmysettings.action" class="   user-item " title="">
+        设置
+</a>
+</li>
+                                                    <li>
+    
+            
+<a id="upm-requests-link" href="http://confluence.ttpai.cn/plugins/servlet/upm/requests?source=header_user" class="    " title="">
+        Atlassian 应用程序商店
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul id="user-menu-link-user-operations" class="aui-list-truncate section-user-operations">
+                                                    <li>
+    
+            
+<a id="logout-link" href="http://confluence.ttpai.cn/logout.action" class="   user-item logout-link " title="">
+        注销
+</a>
+</li>
+                                            </ul>
+                </div>
+                    </nav>
+                    
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar" style="width: 334px; visibility: visible; top: 0px; left: 0px;">
+    				
+	    	<div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="编辑空间细节"><div class="avatar"><div class="space-logo " data-key="mobileteam" data-name="移动开发部" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="http://confluence.ttpai.cn/display/mobileteam?src=sidebar" title="移动开发部"><img class="avatar-img" src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/default-space-logo-256.png" alt="移动开发部"></a></div></div></div></div><div class="name"><a href="http://confluence.ttpai.cn/display/mobileteam?src=sidebar" title="移动开发部">移动开发部</a></div><div class="flyout-handle icon"></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="true" data-quick-links-state="hide" data-nav-type="page-tree"><div class="acs-nav-sections"></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="page-tree"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title page-tree"><span class="icon"></span><span class="label">页面树结构</span></h5></div><div class="ia-secondary-content">
+
+
+<div class="plugin_pagetree">
+
+        
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children" id="children5446359-0">
+<ul class="plugin_pagetree_children_list" id="child_ul5446359-0">
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6097290-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6097290-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6097290&amp;src=contextnavpagetreemode">新员工入职</a>
+        </span>
+            </div>
+
+        <div id="children6097290-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus5446369-0" class="plugin_pagetree_childtoggle icon icon-section-opened" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan5446369-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=5446369&amp;src=contextnavpagetreemode">规范文档</a>
+        </span>
+            </div>
+
+        <div id="children5446369-0" class="plugin_pagetree_children_container">
+                                                        <ul class="plugin_pagetree_children_list" id="child_ul5446369-0">
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan5446376-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=5446376&amp;src=contextnavpagetreemode">Android 代码规范</a>
+        </span>
+            </div>
+
+        <div id="children5446376-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span plugin_pagetree_current" id="childrenspan6759479-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479&amp;src=contextnavpagetreemode">app端和H5页面交互规范</a>
+        </span>
+            </div>
+
+        <div id="children6759479-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan5446379-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=5446379&amp;src=contextnavpagetreemode">Ios 代码规范</a>
+        </span>
+            </div>
+
+        <div id="children5446379-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6755300-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6755300&amp;src=contextnavpagetreemode">MVVM封装规范</a>
+        </span>
+            </div>
+
+        <div id="children6755300-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6767518-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6767518&amp;src=contextnavpagetreemode">ReactNative 规范</a>
+        </span>
+            </div>
+
+        <div id="children6767518-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6755274-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6755274&amp;src=contextnavpagetreemode">ViewModel封装规范</a>
+        </span>
+            </div>
+
+        <div id="children6755274-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6763642-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6763642&amp;src=contextnavpagetreemode">友盟推送规范</a>
+        </span>
+            </div>
+
+        <div id="children6763642-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                        </ul>
+                                        </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6097282-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6097282-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6097282&amp;src=contextnavpagetreemode">环境搭建</a>
+        </span>
+            </div>
+
+        <div id="children6097282-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6097372-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6097372-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6097372&amp;src=contextnavpagetreemode">技术文档</a>
+        </span>
+            </div>
+
+        <div id="children6097372-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6096063-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6096063-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6096063&amp;src=contextnavpagetreemode">重要文档</a>
+        </span>
+            </div>
+
+        <div id="children6096063-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6094926-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6094926-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6094926&amp;src=contextnavpagetreemode">版本信息</a>
+        </span>
+            </div>
+
+        <div id="children6094926-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6095314-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6095314-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6095314&amp;src=contextnavpagetreemode">版本库信息</a>
+        </span>
+            </div>
+
+        <div id="children6095314-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus5446381-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan5446381-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=5446381&amp;src=contextnavpagetreemode">每周技术分享</a>
+        </span>
+            </div>
+
+        <div id="children5446381-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6097347-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6097347-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6097347&amp;src=contextnavpagetreemode">每周周会纪要</a>
+        </span>
+            </div>
+
+        <div id="children6097347-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6098104-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6098104-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6098104&amp;src=contextnavpagetreemode">每周代码review</a>
+        </span>
+            </div>
+
+        <div id="children6098104-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6097349-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6097349-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6097349&amp;src=contextnavpagetreemode">共享技术资源汇总</a>
+        </span>
+            </div>
+
+        <div id="children6097349-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6754078-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#?src=contextnavpagetreemode">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6754078-0">                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6754078&amp;src=contextnavpagetreemode">工作流程</a>
+        </span>
+            </div>
+
+        <div id="children6754078-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+    </ul>
+</div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false&amp;expandCurrent=true">
+        <input type="hidden" name="treePageId" value="6759479">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="5446359">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="mobileteam">
+
+        <input type="hidden" name="i18n-pagetree.loading" value="载入中...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="无法载入页面树。看来你没有权限查看根页面。">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="检索页面树时发生问题。有关详细信息，请检查服务器的日志文件。">
+        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fpages%2Fviewpage.action%3FpageId%3D6759479%26src%3Dcontextnavpagetreemode">
+        <input type="hidden" name="mobile" value="false">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="5446369">
+                                    <input type="hidden" name="ancestorId" value="5446359">
+                                    </fieldset>
+    </fieldset>
+</div>
+</div></div></div><div class="hidden"><a href="http://confluence.ttpai.cn/collector/pages.action?key=mobileteam&amp;src=sidebar" id="space-pages-link" title=" (g ，s)"></a><script type="text/x-template" title="logo-config-content"><h2>空间详情</h2><div class="personal-space-logo-hint">您的个人头像被作为您的个人空间的logo使用。<a href="/users/profile/editmyprofilepicture.action" target="_blank">更改您的个人头像</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="重排页面" data-class="" data-href="/pages/reorderpages.action?key=mobileteam">重排页面</div></div><div id="space-tools-dd-dummy"></div><a id="space-tools-menu-trigger" class="aui-button aui-button-subtle aui-dropdown2-trigger tipsy-enabled" aria-owns="space-tools-dd-dummy" data-collapsed-tooltip="空间管理"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="label">空间管理</span></a><a class="expand-collapse-trigger" data-tooltip="收起侧边栏 ( [ )"></a></div>
+    
+    			<div class="ia-splitter-handle tipsy-enabled" data-tooltip="收起侧边栏 ( [ )" original-title=" ([)"><div class="ia-splitter-handle-highlight"></div></div></div>
+    		</div>
+        <!-- \#header -->
+
+        
+        <div id="main" class=" aui-page-panel" style="margin-left: 334px;">
+                <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                                                    <li class="ajs-button normal">
+
+        
+        
+                                            
+    
+    
+    <a id="editPageLink" href="http://confluence.ttpai.cn/pages/editpage.action?pageId=6759479" rel="nofollow" class="aui-button aui-button-subtle edit" accesskey="e" title="编辑 (e)">
+                <span>
+                            <span class="aui-icon aui-icon-small aui-iconfont-edit"></span>
+                        <u>E</u>编辑
+        </span>    </a>
+</li>
+                                            <li class="ajs-button normal">
+
+        
+        
+                                            
+    
+    
+    <a id="watch-content-button" href="http://confluence.ttpai.cn/pages/viewpage.action?watchingPage=false&amp;watchingSpace=false&amp;watchingBlogs=false&amp;isAdmin=false&amp;isBlogPost=false" rel="nofollow" class="aui-button aui-button-subtle watch-menu" title="关注(w)">
+                <span>
+                            <span class="aui-icon aui-icon-small aui-iconfont-unwatch"></span>
+                        <u>W</u>关注
+        </span>    </a>
+</li>
+                                
+        <li class="normal ajs-menu-item">
+        <a id="add-menu-link" class="add hidden aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" aria-haspopup="true" aria-owns="add-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-add"></span>
+                                添加
+            </span>
+        </a>         <div id="add-menu" class="aui-dropdown2 aui-style-default">
+                            <ul id="add-menu-space" class="section-space first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a id="createPageLink" href="http://confluence.ttpai.cn/pages/createpage.action?spaceKey=mobileteam&amp;fromPageId=6759479" rel="nofollow" class="add-page" accesskey="p" title="添加页面">
+                <span>
+                        页面
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="createPageLinkTemplate" href="http://confluence.ttpai.cn/pages/createpage-choosetemplate.action?spaceKey=mobileteam&amp;newSpaceKey=mobileteam&amp;fromPageId=6759479" rel="nofollow" class="add-page-template" accesskey="p" title="使用模板添加页面">
+                <span>
+                        由模板产生的页面
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="createBlogpostLink" href="http://confluence.ttpai.cn/pages/createblogpost.action?spaceKey=mobileteam" rel="nofollow" class="add-news" title="新增博客文章 (b)">
+                <span>
+                        博文
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul id="add-menu-page" class="section-page aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a id="add-comment-menu-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479&amp;showComments=true&amp;showCommentArea=true#addcomment" rel="nofollow" class="add-comment" title="添加评论">
+                <span>
+                        评论
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="add-attachment-link" href="http://confluence.ttpai.cn/pages/viewpageattachments.action?pageId=6759479" rel="nofollow" class="add-attachment" accesskey="t" title="添加附件">
+                <span>
+                        附件
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default most-right-menu-item">
+                            <ul id="action-menu-primary" class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-attachments-link" href="http://confluence.ttpai.cn/pages/viewpageattachments.action?pageId=6759479" rel="nofollow" class="action-view-attachments" accesskey="t" title="查看附件 (t)">
+                <span>
+                        <u>t</u>附件(5)
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-view-history-link" href="http://confluence.ttpai.cn/pages/viewpreviousversions.action?pageId=6759479" rel="nofollow" class="action-view-history" title="">
+                <span>
+                        页面历史
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-page-permissions-link" href="http://confluence.ttpai.cn/pages/viewinfo.action?pageId=6759479" rel="nofollow" class="action-page-permissions" title="编辑限制">
+                <span>
+                        限制
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul id="action-menu-marker" class="section-marker aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a id="page-favourite" href="http://confluence.ttpai.cn/labels/addfavourite.action?entityId=6759479&amp;atl_token=b92c6be6a4a4e6d5c36c25c3e7d64491805e8c34" rel="nofollow" class="action-page-favourite" title="">
+                <span>
+                        收藏夹
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul id="action-menu-secondary" class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-page-info-link" href="http://confluence.ttpai.cn/pages/viewinfo.action?pageId=6759479" rel="nofollow" class="action-view-info" title="">
+                <span>
+                        页面信息
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+            
+                                            
+    
+    
+    <a id="view-resolved-comments" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" rel="nofollow" class="" title="">
+                <span>Resolved comments (0)</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="link-to-page-link" href="http://confluence.ttpai.cn/pages/viewinfo.action?pageId=6759479" rel="nofollow" class="" title="链接至本页面 (k)">
+                <span>
+                        链接到此页…
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-in-hierarchy-link" href="http://confluence.ttpai.cn/pages/reorderpages.action?key=mobileteam&amp;openId=6759479#selectedPageInHierarchy" rel="nofollow" class="" title="">
+                <span>
+                        以层级方式查看
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-view-source-link" href="http://confluence.ttpai.cn/plugins/viewsource/viewpagesrc.action?pageId=6759479" rel="nofollow" class="action-view-source popup-link" title="">
+                <span>
+                        查看页面源代码
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-export-pdf-link" href="http://confluence.ttpai.cn/spaces/flyingpdf/pdfpageexport.action?pageId=6759479" rel="nofollow" class="" title="">
+                <span>
+                        导出为PDF
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-export-word-link" href="http://confluence.ttpai.cn/exportword?pageId=6759479" rel="nofollow" class="action-export-word" title="">
+                <span>
+                        导出为Word
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul id="action-menu-modify" class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-copy-page-link" href="http://confluence.ttpai.cn/pages/copypage.action?idOfPageToCopy=6759479&amp;spaceKey=mobileteam" rel="nofollow" class="action-copy" title="">
+                <span>
+                        复制
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-move-page-dialog-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479" rel="nofollow" class="action-move" title="">
+                <span>
+                        移动
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-remove-content-link" href="http://confluence.ttpai.cn/pages/removepage.action?pageId=6759479" rel="nofollow" class="action-remove" title="">
+                <span>
+                        删除
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                    
+                
+        <li class="first">
+                
+
+                    <span class=""><a href="http://confluence.ttpai.cn/collector/pages.action?key=mobileteam&amp;src=breadcrumbs-collector">页面</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=5446359&amp;src=breadcrumbs">移动开发部</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=5446369&amp;src=breadcrumbs-parent">规范文档</a></span>
+                </li></ol>
+
+
+                    </div>
+                
+                
+        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner" style="visibility: visible;"><ul class="banner"><li id="system-content-items" class="noprint"><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479" title="Restrictions apply" id="content-metadata-page-restrictions" class="hidden"><img class="page-banner-item-icon" src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/red_padlock.png" style="height: 16px; width: 16px;"></a><a href="http://confluence.ttpai.cn/pages/viewpageattachments.action?pageId=6759479&amp;metadataLink=true" title="5 个附件" id="content-metadata-attachments"><img class="page-banner-item-icon" src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/grey_attach.png" style="height: 16px; width: 16px;"></a></li><li class="page-metadata-item noprint has-button" id="content-metadata-jira-wrapper"><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><img class="page-banner-item-icon" src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/icon-jira-link.png" style="height: 16px; width: 16px;"><span>JIRA链接</span></a></li></ul></div>
+            
+
+<a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#page-banner-start" class="assistive">回到标题开始</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479">app端和H5页面交互规范</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+                        
+    
+    
+
+    
+
+
+
+
+<div id="content" class="page view">
+    
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">页面标题</th>
+                <th class="search-result-space">空间</th>
+                <th class="search-result-date">更新于</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#page-metadata-end" class="assistive">转至元数据结尾</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+        
+            创建： <span class="author">     <a href="http://confluence.ttpai.cn/display/~jinping.ying" class="url fn confluence-userlink userlink-0" data-username="jinping.ying" title="" data-user-hover-bound="true">应金平</a></span>，最新修改于： <a class="last-modified" title="七月 05, 2018 15:44" href="http://confluence.ttpai.cn/pages/diffpagesbyversion.action?pageId=6759479&amp;selectedPageVersions=42&amp;selectedPageVersions=43">七月 05, 2018</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#page-metadata-start" class="assistive">转至元数据起始</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                
+        <div id="main-content" class="wiki-content">
+                           
+        <p>后续和H5交互采用 JS&nbsp;bridge 方式进行交互，下面列出原生的方法</p><p><span style="color: rgb(255,0,0);">JS调用注意点：</span></p><pre><span style="color: rgb(255,0,0);">&nbsp;调用方法时，必须通过window.bridge.xxx方法名，第一个参数为 要传递给app原生方法的参数, 第二个参数为 callback{Function}"，</span></pre><pre><span style="color: rgb(255,0,0);">如果下列方法不需要传递参数，第一个方法参数可选，第二个参数必须要</span></pre><pre><span style="color: rgb(255,0,0);">,原因是IOS是通过callback的方式异步返回调用结果</span></pre><p><span style="color: rgb(255,0,0);">例如&nbsp;</span></p><pre><span style="color: rgb(255,0,0);">window.bridge.updateShareButton("参数",function (param) {</span> </pre><pre><span style="color: rgb(255,0,0);"> doFunction(param)//param是Android和IOS原生方法返回参数，返回参数格式参考下面</span></pre><pre><span style="color: rgb(255,0,0);">})</span></pre><pre><span style="color: rgb(255,0,0);">或者</span>&nbsp;</pre><pre><span style="color: rgb(255,0,0);">window.bridge.updateShareButton(function (param) { </span></pre><pre><span style="color: rgb(255,0,0);"> doFunction(param)//param是Android和IOS原生方法返回参数，返回参数格式参考下面</span></pre><pre><span style="color: rgb(255,0,0);">})</span></pre><pre>&nbsp;</pre><p>1.&nbsp;<strong>updateShareButton ：</strong>分享(H5页面需要拉起本地分享)</p><p>&nbsp;</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>参数示例</b></div><div class="codeContent panelContent pdl">
+<div><div id="highlighter_747289" class="syntaxhighlighter  js"><div class="toolbar"><span><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div><div class="line number43 index42 alt2">43</div><div class="line number44 index43 alt1">44</div><div class="line number45 index44 alt2">45</div><div class="line number46 index45 alt1">46</div><div class="line number47 index46 alt2">47</div><div class="line number48 index47 alt1">48</div><div class="line number49 index48 alt2">49</div><div class="line number50 index49 alt1">50</div><div class="line number51 index50 alt2">51</div><div class="line number52 index51 alt1">52</div><div class="line number53 index52 alt2">53</div><div class="line number54 index53 alt1">54</div><div class="line number55 index54 alt2">55</div><div class="line number56 index55 alt1">56</div><div class="line number57 index56 alt2">57</div><div class="line number58 index57 alt1">58</div><div class="line number59 index58 alt2">59</div><div class="line number60 index59 alt1">60</div><div class="line number61 index60 alt2">61</div><div class="line number62 index61 alt1">62</div><div class="line number63 index62 alt2">63</div><div class="line number64 index63 alt1">64</div><div class="line number65 index64 alt2">65</div><div class="line number66 index65 alt1">66</div><div class="line number67 index66 alt2">67</div><div class="line number68 index67 alt1">68</div><div class="line number69 index68 alt2">69</div><div class="line number70 index69 alt1">70</div><div class="line number71 index70 alt2">71</div><div class="line number72 index71 alt1">72</div><div class="line number73 index72 alt2">73</div><div class="line number74 index73 alt1">74</div><div class="line number75 index74 alt2">75</div><div class="line number76 index75 alt1">76</div><div class="line number77 index76 alt2">77</div></td><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="js plain">&nbsp;APP接收参数格式：</code></div><div class="line number2 index1 alt1"><code class="js plain">{</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"actionType"</code><code class="js plain">: </code><code class="js string">"updateShareButton"</code><code class="js plain">,</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"args"</code><code class="js plain">: {</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareContent: </code><code class="js string">"《罗曼蒂克消亡史》12月16日上映"</code><code class="js plain">,</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareImg: </code><code class="js string">"<a href="https://appnfs.wepiao.com/uploads/active/20161202/11/8da54c69e38297898b9a4d8df7a944bd.jpg" "="">https://appnfs.wepiao.com/uploads/active/20161202/11/8da54c69e38297898b9a4d8df7a944bd.jpg"</a></code><code class="js plain">,</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareTitle: </code><code class="js string">"阿娇当小五，章子怡当小六，葛大爷演的这个黑帮大佬艳福不浅"</code><code class="js plain">,</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">platform: [{</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"1"</code><code class="js plain">,</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"1"</code><code class="js plain">,</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/3/index.html" "="">http://promotion.wepiao.com/cms_new/4462/3/index.html"</a></code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, {</code></div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"2"</code><code class="js plain">,</code></div><div class="line number14 index13 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"2"</code><code class="js plain">,</code></div><div class="line number15 index14 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">originalId:</code><code class="js string">"gh_ccd0b215fc5f"</code><code class="js plain">,</code></div><div class="line number16 index15 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">mediaPath:</code><code class="js string">"pages/sell-car/sell-car"</code><code class="js plain">,</code></div><div class="line number17 index16 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">mediaImage:</code><code class="js string">"<a href="https://cdn01.ttpaicdn.com/frontmobile/common/images/logo@x2.png" "="">https://cdn01.ttpaicdn.com/frontmobile/common/images/logo@x2.png"</a></code><code class="js plain">,</code></div><div class="line number18 index17 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/3/index.html" "="">http://promotion.wepiao.com/cms_new/4462/3/index.html"</a></code></div><div class="line number19 index18 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, {</code></div><div class="line number20 index19 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"3"</code><code class="js plain">,</code></div><div class="line number21 index20 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"0"</code><code class="js plain">,</code></div><div class="line number22 index21 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/6/index.html" "="">http://promotion.wepiao.com/cms_new/4462/6/index.html"</a></code></div><div class="line number23 index22 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, {</code></div><div class="line number24 index23 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"4"</code><code class="js plain">,</code></div><div class="line number25 index24 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"0"</code><code class="js plain">,</code></div><div class="line number26 index25 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/6/index.html" "="">http://promotion.wepiao.com/cms_new/4462/6/index.html"</a></code></div><div class="line number27 index26 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, {</code></div><div class="line number28 index27 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"5"</code><code class="js plain">,</code></div><div class="line number29 index28 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"0"</code><code class="js plain">,</code></div><div class="line number30 index29 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/6/index.html" "="">http://promotion.wepiao.com/cms_new/4462/6/index.html"</a></code></div><div class="line number31 index30 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, {</code></div><div class="line number32 index31 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"6"</code><code class="js plain">,</code></div><div class="line number33 index32 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"0"</code><code class="js plain">,</code></div><div class="line number34 index33 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/6/index.html" "="">http://promotion.wepiao.com/cms_new/4462/6/index.html"</a></code></div><div class="line number35 index34 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}]</code></div><div class="line number36 index35 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number37 index36 alt2"><code class="js plain">}</code></div><div class="line number38 index37 alt1">&nbsp;</div><div class="line number39 index38 alt2"><code class="js plain">返回给JS的结果格式：</code></div><div class="line number40 index39 alt1"><code class="js plain">无&nbsp;</code></div><div class="line number41 index40 alt2"><code class="js plain">调用示例</code></div><div class="line number42 index41 alt1"><code class="js plain">&nbsp;</code></div><div class="line number43 index42 alt2"><code class="js spaces">&nbsp;</code><code class="js plain">window.bridge.updateShareButton({</code></div><div class="line number44 index43 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareContent: </code><code class="js string">"《罗曼蒂克消亡史》12月16日上映"</code><code class="js plain">,</code></div><div class="line number45 index44 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareImg: </code><code class="js string">"<a href="https://appnfs.wepiao.com/uploads/active/20161202/11/8da54c69e38297898b9a4d8df7a944bd.jpg" "="">https://appnfs.wepiao.com/uploads/active/20161202/11/8da54c69e38297898b9a4d8df7a944bd.jpg"</a></code><code class="js plain">,</code></div><div class="line number46 index45 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareTitle: </code><code class="js string">"阿娇当小五，章子怡当小六，葛大爷演的这个黑帮大佬艳福不浅"</code><code class="js plain">,</code></div><div class="line number47 index46 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">platform: [{</code></div><div class="line number48 index47 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"1"</code><code class="js plain">,</code></div><div class="line number49 index48 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"1"</code><code class="js plain">,</code></div><div class="line number50 index49 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/3/index.html" "="">http://promotion.wepiao.com/cms_new/4462/3/index.html"</a></code></div><div class="line number51 index50 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, {</code></div><div class="line number52 index51 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"2"</code><code class="js plain">,</code></div><div class="line number53 index52 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"2"</code><code class="js plain">,</code></div><div class="line number54 index53 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">originalId:</code><code class="js string">""</code><code class="js plain">,</code></div><div class="line number55 index54 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">mediaPath:</code><code class="js string">""</code><code class="js plain">,</code></div><div class="line number56 index55 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">mediaImage:</code><code class="js string">""</code><code class="js plain">,</code></div><div class="line number57 index56 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/3/index.html" "="">http://promotion.wepiao.com/cms_new/4462/3/index.html"</a></code></div><div class="line number58 index57 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, {</code></div><div class="line number59 index58 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"3"</code><code class="js plain">,</code></div><div class="line number60 index59 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"0"</code><code class="js plain">,</code></div><div class="line number61 index60 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/6/index.html" "="">http://promotion.wepiao.com/cms_new/4462/6/index.html"</a></code></div><div class="line number62 index61 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, {</code></div><div class="line number63 index62 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"4"</code><code class="js plain">,</code></div><div class="line number64 index63 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"0"</code><code class="js plain">,</code></div><div class="line number65 index64 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/6/index.html" "="">http://promotion.wepiao.com/cms_new/4462/6/index.html"</a></code></div><div class="line number66 index65 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, {</code></div><div class="line number67 index66 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"5"</code><code class="js plain">,</code></div><div class="line number68 index67 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"0"</code><code class="js plain">,</code></div><div class="line number69 index68 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/6/index.html" "="">http://promotion.wepiao.com/cms_new/4462/6/index.html"</a></code></div><div class="line number70 index69 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, {</code></div><div class="line number71 index70 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">type: </code><code class="js string">"6"</code><code class="js plain">,</code></div><div class="line number72 index71 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareType: </code><code class="js string">"0"</code><code class="js plain">,</code></div><div class="line number73 index72 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">shareUrl: </code><code class="js string">"<a href="http://promotion.wepiao.com/cms_new/4462/6/index.html" "="">http://promotion.wepiao.com/cms_new/4462/6/index.html"</a></code></div><div class="line number74 index73 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}]</code></div><div class="line number75 index74 alt2"><code class="js plain">}, </code><code class="js keyword">function</code><code class="js plain">(param) {</code></div><div class="line number76 index75 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">doFunction(param)</code><code class="js comments">//param为undefined</code></div><div class="line number77 index76 alt2"><code class="js plain">})</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>参数解析：</p><p>shareContent 分享内容</p><p>shareImg 分享的图片</p><p>shareTitle 分享的标题</p><pre><span style="color: rgb(255,102,0);">shareType 0 代表普通分享，包含标题，内容。 1代表纯图片分享 2代表小程序分享</span></pre><p>originalId 代表小程序分享原始ID，mediaPath 代表小程序分享路径，mediaImage 代表小程序分享缩略图，这三个只有shareType=2返回</p><p>platForm 是包含分享到哪些平台，目前先暂时填写全平台，分类原因是便于以后扩展（比如我某H5页面只针对分享到 微信和朋友圈，另一个H5针对分享到微信朋友圈，微博,QQ），这一块还涉及到UI展示问题，需要具体需求，跟产品确定</p><p>&nbsp; &nbsp; &nbsp;type: 1:微信 2 朋友圈 3 QQ 4QQ空间 5 微博 6 复制链接&nbsp;</p><p>&nbsp; &nbsp; &nbsp;shareUrl 当前平台分享的连接（因为每个平台可能分享的连接不同）</p><pre>&nbsp;</pre><p>2.&nbsp;<strong>refreshPage：</strong>刷新H5页面</p><p>&nbsp;</p><p>3. <strong>closePage</strong> ： 关闭H5页面</p><pre>&nbsp;</pre><p>&nbsp;</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>代码示例</b></div><div class="codeContent panelContent pdl">
+<div><div id="highlighter_516959" class="syntaxhighlighter nogutter  js"><div class="toolbar"><span><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="js plain">APP接收参数格式：</code></div><div class="line number2 index1 alt1"><code class="js plain">刷新H5页面 {</code><code class="js string">"actionType"</code><code class="js plain">:</code><code class="js string">"refreshPage"</code><code class="js plain">}</code></div><div class="line number3 index2 alt2"><code class="js plain">关闭H5页面 {actionType:</code><code class="js string">"closePage"</code><code class="js plain">}</code></div><div class="line number4 index3 alt1"><code class="js plain">返回给JS的结果格式：</code></div><div class="line number5 index4 alt2"><code class="js plain">无</code></div><div class="line number6 index5 alt1"><code class="js plain">&nbsp;</code></div><div class="line number7 index6 alt2"><code class="js plain">调用示例</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;</code><code class="js plain">$(</code><code class="js string">".refreshPage"</code><code class="js plain">).on(</code><code class="js string">"click"</code><code class="js plain">, </code><code class="js keyword">function</code> <code class="js plain">refreshPage() {</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">window.bridge.refreshPage(</code><code class="js keyword">function</code> <code class="js plain">(param) {</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">doFunction(param)</code><code class="js comments">//param为undefined</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js comments">// 点击 "刷新页面" 按钮</code></div><div class="line number14 index13 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">$(</code><code class="js string">".closePage"</code><code class="js plain">).on(</code><code class="js string">"click"</code><code class="js plain">, </code><code class="js keyword">function</code> <code class="js plain">refreshPage() {</code></div><div class="line number15 index14 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">window.bridge.closePage(</code><code class="js keyword">function</code> <code class="js plain">(param) {</code></div><div class="line number16 index15 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">doFunction(param)</code><code class="js comments">//param为undefined</code></div><div class="line number17 index16 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div><div class="line number18 index17 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>&nbsp;</p><p>4.&nbsp;<strong>updateTitle</strong>： 设置标题</p><p>&nbsp; &nbsp; 参数 ： 要设置的标题字符串</p><p>&nbsp;</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>代码示例</b></div><div class="codeContent panelContent pdl">
+<div><div id="highlighter_600316" class="syntaxhighlighter nogutter  js"><div class="toolbar"><span><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="js plain">APP接收参数格式：</code></div><div class="line number2 index1 alt1"><code class="js plain">{</code><code class="js string">"actionType"</code><code class="js plain">:</code><code class="js string">"updateTitle"</code><code class="js plain">,</code><code class="js string">"args"</code><code class="js plain">:{</code><code class="js string">"title"</code><code class="js plain">:</code><code class="js string">"我是新标题"</code><code class="js plain">}}</code></div><div class="line number3 index2 alt2"><code class="js plain">返回给JS的结果格式：</code></div><div class="line number4 index3 alt1"><code class="js plain">无</code></div><div class="line number5 index4 alt2"><code class="js plain">&nbsp;</code></div><div class="line number6 index5 alt1"><code class="js plain">调用示例：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js comments">// 点击 "设置标题" 按钮</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">$(</code><code class="js string">".updateWPTitle"</code><code class="js plain">).on(</code><code class="js string">"click"</code><code class="js plain">, </code><code class="js keyword">function</code> <code class="js plain">updateTitle() {</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">window.bridge.updateTitle({</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">title: </code><code class="js string">"我是新标题"</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, </code><code class="js keyword">function</code> <code class="js plain">(param) {</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">doFunction(param)</code><code class="js comments">//param为undefined</code></div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div><div class="line number14 index13 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>5.&nbsp;<strong>getAppVersion</strong>： 获取app版本信息</p><p>&nbsp;</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>代码示例</b></div><div class="codeContent panelContent pdl">
+<div><div id="highlighter_113096" class="syntaxhighlighter nogutter  js"><div class="toolbar"><span><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="js plain">APP接收参数格式：</code></div><div class="line number2 index1 alt1"><code class="js plain">{</code><code class="js string">"actionType"</code><code class="js plain">:</code><code class="js string">"getAppVersion"</code><code class="js plain">}</code></div><div class="line number3 index2 alt2"><code class="js plain">返回给JS的结果格式：</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;</code><code class="js plain">x.x.x(字符串，例如 2.2.4)</code></div><div class="line number5 index4 alt2"><code class="js plain">&nbsp;</code></div><div class="line number6 index5 alt1"><code class="js plain">调用示例：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js comments">// 点击 "获取APP版本信息" 按钮</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">$(</code><code class="js string">".getAppVersion"</code><code class="js plain">).on(</code><code class="js string">"click"</code><code class="js plain">, </code><code class="js keyword">function</code> <code class="js plain">getAppVersion() {</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">window.bridge.getAppVersion(</code><code class="js keyword">function</code> <code class="js plain">(param) {</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">doFunction(param)</code><code class="js comments">//param 为版本号值</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>6. <strong>getAppToken</strong>： 获取app 登录token</p><p>&nbsp;</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>代码示例</b></div><div class="codeContent panelContent pdl">
+<div><div id="highlighter_940952" class="syntaxhighlighter nogutter  js"><div class="toolbar"><span><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="js plain">APP接收参数格式：</code></div><div class="line number2 index1 alt1"><code class="js plain">{</code><code class="js string">"actionType"</code><code class="js plain">:</code><code class="js string">"getAppToken"</code><code class="js plain">}</code></div><div class="line number3 index2 alt2"><code class="js plain">返回给JS的结果格式：</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;</code><code class="js plain">xxxx(字符串，例如 faf02dfoiiG7JK9LLD09Uuid98I===)</code></div><div class="line number5 index4 alt2"><code class="js plain">&nbsp;</code></div><div class="line number6 index5 alt1"><code class="js plain">调用示例：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js comments">// 点击 "获取token" 按钮</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">$(</code><code class="js string">".getAppToken"</code><code class="js plain">).on(</code><code class="js string">"click"</code><code class="js plain">, </code><code class="js keyword">function</code> <code class="js plain">getAppToken() {</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">window.bridge.getAppToken(</code><code class="js keyword">function</code> <code class="js plain">(param) {</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">doFunction(param)</code><code class="js comments">//param 为token值</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>7. goAppLogin： 拉起APP登录，成功后回调，回调方法名appLoginCallback()，如果APP已经是登录状态，会直接执行回调方法appLoginCallback，回调方法appLoginCallback的参数result格式：</p><p>' {"result":true,"token":"faf4b0fd2c0e552a452509a97a9fa2ea"} ' (json字符串)</p><p>经销商app：传递的</p><p>' {"result":true,"token":"faf4b0fd2c0e552a452509a97a9fa2ea","dealerId":"6877887"} '&nbsp;(json字符串)</p><p><span style="color: rgb(255,0,0);">必须在JS里声明回调方法，否则无法完成回调</span></p><pre><span style="color: rgb(255,0,0);">function appLoginCallback(result) {</span><br><span style="color: rgb(255,0,0);"> alert("appLoginCallback 执行,参数: " + result)</span><br><span style="color: rgb(255,0,0);">}</span></pre><p>&nbsp;</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>代码示例</b></div><div class="codeContent panelContent pdl">
+<div><div id="highlighter_498863" class="syntaxhighlighter nogutter  js"><div class="toolbar"><span><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="js plain">APP接收参数格式：</code></div><div class="line number2 index1 alt1"><code class="js plain">{</code><code class="js string">"actionType"</code><code class="js plain">:</code><code class="js string">"goAppLogin"</code><code class="js plain">}</code></div><div class="line number3 index2 alt2"><code class="js plain">返回给JS的结果格式：</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;</code><code class="js plain">无</code></div><div class="line number5 index4 alt2"><code class="js plain">&nbsp;</code></div><div class="line number6 index5 alt1"><code class="js plain">调用示例：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js comments">// 点击 "获取token" 按钮</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">$(</code><code class="js string">".goAppLogin"</code><code class="js plain">).on(</code><code class="js string">"click"</code><code class="js plain">, </code><code class="js keyword">function</code> <code class="js plain">goAppLogin() {</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">window.bridge.goAppLogin(</code><code class="js keyword">function</code> <code class="js plain">(param) {</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">doFunction(param)</code><code class="js comments">//param 为undefined</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>8.&nbsp;<strong>openH5Screen</strong>： 打开一个原生 跳转到指定H5地址 的页面</p><p>&nbsp;</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>代码示例</b></div><div class="codeContent panelContent pdl">
+<div><div id="highlighter_240090" class="syntaxhighlighter nogutter  js"><div class="toolbar"><span><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="js plain">APP接收参数格式：</code></div><div class="line number2 index1 alt1"><code class="js plain">{</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"actionType"</code><code class="js plain">: </code><code class="js string">"openH5Screen"</code><code class="js plain">,</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"args"</code><code class="js plain">: {</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"title"</code><code class="js plain">: </code><code class="js string">"我是H5标题"</code><code class="js plain">,</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"url"</code><code class="js plain">: </code><code class="js string">"<a href="https://www.baidu.com/" "="">https://www.baidu.com/"</a></code><code class="js plain">,</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"closeCurrenScreen"</code><code class="js plain">: </code><code class="js string">"true"</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number9 index8 alt2"><code class="js plain">}</code></div><div class="line number10 index9 alt1"><code class="js plain">返回给JS的结果格式：</code></div><div class="line number11 index10 alt2"><code class="js plain">无</code></div><div class="line number12 index11 alt1"><code class="js plain">&nbsp;</code></div><div class="line number13 index12 alt2"><code class="js plain">调用示例：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number14 index13 alt1"><code class="js spaces">&nbsp;</code><code class="js comments">// 点击 "打开H5链接新页面" 按钮</code></div><div class="line number15 index14 alt2"><code class="js plain">$(</code><code class="js string">".openH5Screen"</code><code class="js plain">).on(</code><code class="js string">"click"</code><code class="js plain">, </code><code class="js keyword">function</code> <code class="js plain">openH5Screen() {</code></div><div class="line number16 index15 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">var</code> <code class="js plain">result = window.bridge.openH5Screen({</code></div><div class="line number17 index16 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"title"</code><code class="js plain">: </code><code class="js string">"我是H5标题"</code><code class="js plain">,</code></div><div class="line number18 index17 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"url"</code><code class="js plain">: </code><code class="js string">"<a href="https://www.baidu.com/" "="">https://www.baidu.com/"</a></code><code class="js plain">,</code></div><div class="line number19 index18 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"closeCurrenScreen"</code><code class="js plain">: </code><code class="js string">"false"</code></div><div class="line number20 index19 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">}, </code><code class="js keyword">function</code> <code class="js plain">(param) {</code></div><div class="line number21 index20 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">doFunction(param)</code><code class="js comments">//param 为undefined</code></div><div class="line number22 index21 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">})</code></div><div class="line number23 index22 alt2"><code class="js plain">})</code></div><div class="line number24 index23 alt1"><code class="js plain">})</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>参数解析：</p><p>&nbsp;</p><pre>title 为原生页面要显示的标题</pre><pre>url 为H5地址链接</pre><pre>closeCurrenScreen : 是否关闭原来调用的原生页面</pre><p>&nbsp;</p><p>其他type待扩展</p><p>&nbsp;</p><p>示例地址：</p><p><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="http://confluence.ttpai.cn/download/attachments/6759479/jsbridge.zip?version=4&amp;modificationDate=1531469768000&amp;api=v2" data-nice-type="Zip Archive" data-file-src="/download/attachments/6759479/jsbridge.zip?version=4&amp;modificationDate=1531469768000&amp;api=v2" data-linked-resource-id="6762708" data-linked-resource-type="attachment" data-linked-resource-container-id="6759479" data-linked-resource-default-alias="jsbridge.zip" data-mime-type="application/zip" data-has-thumbnail="false" data-linked-resource-version="4"><img src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/placeholder-medium-zip.png" height="250"><span class="title">jsbridge.zip</span></a></span></p><p><a href="http://www.6mi8.com/jsbe.html" class="external-link" rel="nofollow">http://www.6mi8.com/jsbe.html</a></p><p>&nbsp;</p>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479"
+    dc:identifier="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479"
+    dc:title="app端和H5页面交互规范"
+    trackback:ping="http://confluence.ttpai.cn/rpc/trackback/6759479"/>
+</rdf:RDF>
+-->
+
+                        
+    
+
+
+
+<div id="likes-and-labels-container"><div id="likes-section"><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479" class="like-button"><span class="aui-icon aui-icon-small aui-iconfont-like"></span><span class="like-button-text">赞</span></a><span class="like-summary">成为第一个赞同者</span></div><div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="6759479" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right  has-pen">
+            <li class="no-labels-message">
+            无标签
+        </li>
+                <li class="labels-edit-container">
+            <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="show-labels-editor" title="编辑标签 (l)">
+                <span class="aui-icon aui-icon-small aui-iconfont-edit-small">编辑标签</span>
+            </a>
+        </li>
+        </ul>
+
+    </div>
+</div></div></div>
+        
+		
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                    
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+    
+    
+            <div class="bottom-comment-panels comment-panels">
+                                    
+    
+
+                    
+    
+
+
+    
+
+<div class="quick-comment-container comment add"><p class="comment-user-logo"><a class="userLogoLink userlink-1" data-username="faqi.tao" href="http://confluence.ttpai.cn/users/profile/editmyprofilepicture.action" title="" data-user-hover-bound="true"><img class="userLogo logo defaultLogo" src="./app端和H5页面交互规范 - 移动开发部 - Confluence_files/add_profile_pic.png" alt="用户图标: 添加头像" title=""></a></p><div class="quick-comment-body"><div class="quick-comment-loading-container" style="display:none;"></div><div id="editor-messages"></div><div id="all-messages"></div><form style="display:block;" class="quick-comment-form aui" method="post" name="inlinecommentform" action="http://confluence.ttpai.cn/pages/doaddcomment.action?pageId=6759479"><div title="添加评论 (m)" class="quick-comment-prompt"><span>编写评论...</span></div></form></div></div>
+
+    
+            </div>
+    
+                        <div id="comments-actions" class="aui-toolbar noprint" style="display: none;">
+                <p class="toolbar-group">
+                    <span class="toolbar-item"><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479&amp;showComments=true&amp;showCommentArea=true#addcomment" id="add-comment-rte" accesskey="m" class="toolbar-trigger">添加评论</a></span>
+                </p>
+            </div>
+            </div>
+
+
+                
+    
+            
+<div class="ic-sidebar"></div></div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="概览" data-href="/spaces/viewspacesummary.action?key=mobileteam">概览</div>
+            <div data-label="内容工具" data-href="/pages/reorderpages.action?key=mobileteam">内容工具</div>
+    </div>
+
+
+
+
+    </div><!-- \#main -->
+        
+    
+        
+            
+
+<div id="footer" role="contentinfo" style="margin-left: 334px;">
+    <section class="footer-body">
+
+                                        
+        
+
+        <ul id="poweredby">
+            <li class="noprint">由以下机构提供技术支持：<a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id="footer-build-information">5.7.4</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+            <li class="print-only">由以下机构打印：Atlassian Confluence 5.7.4, Team Collaboration Software.</li>
+            <li class="noprint"><a href="https://jira.atlassian.com/browse/CONF" class="hover-footer-link">报告缺陷</a></li>
+            <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian 新闻</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+            
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+
+<div id="content-hover-0" class="ajs-content-hover"><div class="contents" style="width: 300px;"></div></div><div id="content-hover-1" class="ajs-content-hover"><div class="contents" style="width: 300px;"></div></div><div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div id="content-hover-shadow" style="display: none;"><div class="tl"></div><div class="tr"></div><div class="l"></div><div class="r"></div><div class="bl"></div><div class="br"></div><div class="b"></div></div><div id="cw-notification-container"></div><div class="qr-notice-container"></div><div id="fileuploadShim" style="position: relative; z-index: 0;"></div><div id="p1ckef15mr9n5r67ce7hb41c0u0_html5_container" class="plupload html5" style="position: absolute; background: transparent; width: 1903px; height: 0px; overflow: hidden; z-index: -1; opacity: 0; top: 2711px; left: 0px;"><input id="p1ckef15mr9n5r67ce7hb41c0u0_html5" style="font-size: 999px; position: absolute; width: 100%; height: 100%;" type="file" accept="" multiple="multiple"></div><div id="editor-preload-container" style="display: none;">
+ 
+
+<div class="hidden">
+        
+
+
+<content tag="breadcrumbs">
+    
+    
+    <ol id="quickedit-breadcrumbs">
+                    
+                
+        <li class="first">
+                
+
+                    <span class=""><a href="http://confluence.ttpai.cn/display/mobileteam">移动开发部</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="http://confluence.ttpai.cn/collector/pages.action?key=mobileteam">页面</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=5446359">移动开发部</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=5446369">规范文档</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class="edited-page-title"><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479">app端和H5页面交互规范</a></span>
+                </li></ol>
+
+</content>
+</div>
+
+
+
+                                                                                                            
+
+<script type="text/x-template" title="editor-css" id="editor-css-resources">
+    <link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/1.0/_/download/batch/confluence.web.resources:panel-styles/confluence.web.resources:panel-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/1.0/_/download/batch/confluence.web.resources:content-styles/confluence.web.resources:content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/6c0a593c1f465e6d3fe2e78692153640-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.7.20/_/download/batch/com.atlassian.auiplugin:aui-page-typography/com.atlassian.auiplugin:aui-page-typography.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/6c0a593c1f465e6d3fe2e78692153640-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.7.20/_/download/batch/com.atlassian.auiplugin:aui-avatars/com.atlassian.auiplugin:aui-avatars.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/6c67f6f49c7d4f70bd6b6afd7162bfc1-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.7.20/_/download/batch/com.atlassian.auiplugin:aui-page-layout/com.atlassian.auiplugin:aui-page-layout.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1f172070122fb1653db2c22001799a01-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.7.4/_/download/batch/com.atlassian.confluence.editor:editor-content-styles/com.atlassian.confluence.editor:editor-content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/3.0.5/_/download/batch/com.tngtech.confluence.plugins.tableenhancer:fixedheaders-in-editor-resources/com.tngtech.confluence.plugins.tableenhancer:fixedheaders-in-editor-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/1.0.21/_/download/batch/com.atlassian.confluence.confluence-editor-hide-tools:confluence-editor-hide-tools-iframe-resources/com.atlassian.confluence.confluence-editor-hide-tools:confluence-editor-hide-tools-iframe-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/2.3.9/_/download/batch/com.atlassian.confluence.plugins.confluence-software-blueprints:common-resources/com.atlassian.confluence.plugins.confluence-software-blueprints:common-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/6c0a593c1f465e6d3fe2e78692153640-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.7.20/_/download/batch/com.atlassian.auiplugin:aui-lozenge/com.atlassian.auiplugin:aui-lozenge.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/2.16/_/download/batch/com.atlassian.confluence.plugins.status-macro:view_content_status/com.atlassian.confluence.plugins.status-macro:view_content_status.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/481ef61e0c87572ca13ea587b5cf2dbe-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/2.16/_/download/batch/com.atlassian.confluence.plugins.status-macro:editor_content_status/com.atlassian.confluence.plugins.status-macro:editor_content_status.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/a55f78b6fe291d39b5922659e54f6aa2-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/1.4.13/_/download/batch/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-editor-content-resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-editor-content-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.7.4/_/download/batch/com.atlassian.confluence.plugins.confluence-templates:variable-editor-content-styles/com.atlassian.confluence.plugins.confluence-templates:variable-editor-content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/21fae354a24992f8333c31cef17dbd08-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/3.6.12/_/download/batch/confluence.extra.attachments:attachments-css/confluence.extra.attachments:attachments-css.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/12.2.7/_/download/batch/com.atlassian.confluence.plugins.confluence-roadmap-plugin:roadmap-placeholder-css/com.atlassian.confluence.plugins.confluence-roadmap-plugin:roadmap-placeholder-css.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.6.19/_/download/batch/com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles/com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.6.19/_/download/batch/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css.css" media="all">
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.6.19/_/download/batch/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.7.4/_/download/batch/com.atlassian.confluence.plugins.confluence-page-layout:editor-pagelayout-content-styles/com.atlassian.confluence.plugins.confluence-page-layout:editor-pagelayout-content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/1/_/styles/colors.css?spaceKey=mobileteam" media="all">
+<link type="text/css" rel="stylesheet" href="/s/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/1.0/_/download/resources/com.atlassian.confluence.themes.default:styles/default-theme.css" media="all">
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+<div class="editor-container">
+
+        
+            <div id="image-properties-tab-items" class="hidden">
+                <div title="Effects" data-weight="10">image-effects</div>
+            <div title="标题" data-weight="20">image-attributes</div>
+    </div>
+            
+
+<div id="link-browser-tab-items" class="hidden">
+                <div title="搜索" data-weight="10">search</div>
+            <div title="Recently viewed" data-weight="20">recentlyviewed</div>
+            <div title="附件" data-weight="30">attachments</div>
+            <div title="Web link" data-weight="40">weblink</div>
+            <div title="高级" data-weight="50">advanced</div>
+    </div>
+                                                                                                                                        
+
+ 
+
+
+
+
+
+
+
+
+
+
+        <div id="toolbar">
+        <div id="rte-toolbar" class="aui-toolbar aui-toolbar2">
+
+            <div class="aui-toolbar2-primary toolbar-primary">
+                <ul class="aui-buttons rte-toolbar-group-formatting">
+                                        <li id="format-dropdown" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a id="format-dropdown-display" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar-trigger aui-dd-trigger aui-button" data-control-id="formatselect">
+                                <span class="dropdown-text">正文</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+                            <ul id="format-dropdown-display-menu" class="aui-dropdown hidden">
+                                    <li class="dropdown-item format-p" data-format="p" data-tooltip="正文 (Ctrl+0)">
+        <a class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">正文</a>
+    </li>
+                                    <li class="dropdown-item format-h1" data-format="h1" data-tooltip="标题 1 (Ctrl+1)">
+        <a class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">标题 1</a>
+    </li>
+                                    <li class="dropdown-item format-h2" data-format="h2" data-tooltip="标题 2 (Ctrl+2)">
+        <a class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">标题 2</a>
+    </li>
+                                    <li class="dropdown-item format-h3" data-format="h3" data-tooltip="标题 3 (Ctrl+3)">
+        <a class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">标题 3</a>
+    </li>
+                                    <li class="dropdown-item format-h4" data-format="h4" data-tooltip="标题 4 (Ctrl+4)">
+        <a class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">标题 4</a>
+    </li>
+                                    <li class="dropdown-item format-h5" data-format="h5" data-tooltip="标题 5 (Ctrl+5)">
+        <a class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">标题 5</a>
+    </li>
+                                    <li class="dropdown-item format-h6" data-format="h6" data-tooltip="标题 6 (Ctrl+6)">
+        <a class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">标题 6</a>
+    </li>
+                                    <li class="dropdown-item format-pre" data-format="pre" data-tooltip="预格式化 (Ctrl+7)">
+        <a class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">预格式化</a>
+    </li>
+                                    <li class="dropdown-item format-blockquote" data-format="blockquote" data-tooltip="引用 (Ctrl+8)">
+        <a class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">引用</a>
+    </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-style">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-bold" data-tooltip="粗体 (Ctrl+B)">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="bold">
+                <span class="icon icon-bold ">粗体</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-italic" data-tooltip="斜体 (Ctrl+I)">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="italic">
+                <span class="icon icon-italic ">斜体</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-underline" data-tooltip="下划线 (Ctrl+U)">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="underline">
+                <span class="icon icon-underline ">下划线</span>
+        </a>
+    </li>
+                                        <li id="color-picker-control" class="toolbar-item toolbar-splitbutton">
+                        <a class="toolbar-trigger aui-button" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" id="rte-button-color" data-color="003366" data-tooltip="颜色">
+                                <span class="icon icon-textcolor ">颜色选取器</span>
+                            <span class="selected-color"></span>
+                        </a>
+                        <div class="aui-dd-parent">
+                            <a class="toolbar-trigger aui-dd-trigger aui-button" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" id="rte-button-color-selector" data-control-id="colorSelector" data-tooltip="更多颜色">
+                                    <span class="icon icon-dropdown ">更多颜色</span>
+                            </a>
+                            <div class="color-picker-container">
+                                <div class="color-picker aui-dropdown hidden">
+                                    <ul>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #000000" data-color="000000">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #993300" data-color="993300">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #333300" data-color="333300">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #003300" data-color="003300">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #003366" data-color="003366">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #000080" data-color="000080">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #333399" data-color="333399">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #333333" data-color="333333">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #800000" data-color="800000">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #FF6600" data-color="FF6600">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #808000" data-color="808000">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #008000" data-color="008000">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #008080" data-color="008080">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #0000FF" data-color="0000FF">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #666699" data-color="666699">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #808080" data-color="808080">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #FF0000" data-color="FF0000">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #FF9900" data-color="FF9900">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #99CC00" data-color="99CC00">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #339966" data-color="339966">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #33CCCC" data-color="33CCCC">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #3366FF" data-color="3366FF">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #800080" data-color="800080">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #999999" data-color="999999">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #FF00FF" data-color="FF00FF">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #FFCC00" data-color="FFCC00">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #FFFF00" data-color="FFFF00">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #00FF00" data-color="00FF00">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #00FFFF" data-color="00FFFF">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #00CCFF" data-color="00CCFF">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #993366" data-color="993366">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #C0C0C0" data-color="C0C0C0">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #FF99CC" data-color="FF99CC">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #FFCC99" data-color="FFCC99">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #FFFF99" data-color="FFFF99">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #CCFFCC" data-color="CCFFCC">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #CCFFFF" data-color="CCFFFF">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #99CCFF" data-color="99CCFF">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #CC99FF" data-color="CC99FF">&nbsp;</a></li>
+            <li><a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" style="background-color: #FFFFFF" data-color="FFFFFF">&nbsp;</a></li>
+    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="more-menu" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a id="rte-button-more" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar-trigger aui-dd-trigger aui-button" data-tooltip="更多">
+                                    <span class="icon icon-more ">格式</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+                            <div id="rte-button-more-menu" class="aui-dropdown grouped hidden">
+                                <div class="grouped-dropdown-item">
+                                    <ul>
+                                                                <li class="dropdown-item more-menu-trigger" data-control-id="strikethrough" data-tooltip="删除线 (Ctrl+Shift+S)">
+        <a id="rte-strikethrough" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon icon-check hidden"></span>
+删除线
+        </a>
+    </li>
+                                                                 <li class="dropdown-item more-menu-trigger" data-control-id="sub" data-tooltip="">
+        <a id="rte-sub" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon icon-check hidden"></span>
+下标
+        </a>
+    </li>
+                                                                 <li class="dropdown-item more-menu-trigger" data-control-id="sup" data-tooltip="">
+        <a id="rte-sup" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon icon-check hidden"></span>
+上标
+        </a>
+    </li>
+                                                        <li class="dropdown-item more-menu-trigger" data-control-id="monospace" data-tooltip="用等宽字体格式化文本">
+        <a id="rte-monospace" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon icon-check hidden"></span>
+等宽
+        </a>
+    </li>
+
+                                                                                                                    </ul>
+                                </div>
+                                <div class="grouped-dropdown-item">
+                                    <ul>
+                                            <li class="dropdown-item more-menu-trigger no-icon" data-format="removeformat" data-tooltip="当前选中文本清除格式">
+        <a id="rte-removeformat" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+            Clear formatting
+        </a>
+    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-lists">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-bullist" data-tooltip="无序列表 (Ctrl+Shift+B)">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="bullist">
+                <span class="icon icon-bullist ">无序列表</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-numlist" data-tooltip="有序列表 (Ctrl+Shift+N)">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="numlist">
+                <span class="icon icon-numlist ">有序列表</span>
+        </a>
+    </li>
+                </ul>
+                                <ul class="aui-buttons rte-toolbar-group-task-lists">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-tasklist" data-tooltip="任务列表 ( )">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="tasklist">
+                <span class="icon icon-tasklist ">任务列表</span>
+        </a>
+    </li>
+                </ul>
+                
+                <ul class="aui-buttons rte-toolbar-group-indentation">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-outdent" data-tooltip="减小缩进t">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="outdent">
+                <span class="icon icon-outdent ">减小缩进t</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-indent" data-tooltip="增大缩进">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="indent">
+                <span class="icon icon-indent ">增大缩进</span>
+        </a>
+    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-justification">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifyleft" data-tooltip="左对齐">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="justifyleft">
+                <span class="icon icon-justifyleft ">左对齐</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifycenter" data-tooltip="居中">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="justifycenter">
+                <span class="icon icon-justifycenter ">居中</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifyright" data-tooltip="右对齐">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="justifyright">
+                <span class="icon icon-justifyright ">右对齐</span>
+        </a>
+    </li>
+                </ul>
+
+                                <ul class="aui-buttons hidden" id="page-layout-2-group">
+                    <li id="page-layout-2" class="toolbar-item" data-tooltip="页面布局">
+                        <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="aui-button toolbar-trigger" id="rte-button-pagelayout-2">
+                                <span class="icon icon-layout ">页面布局</span>
+                        </a>
+                    </li>
+                </ul>
+                
+
+                                    <ul class="aui-buttons rte-toolbar-group-files hidden"></ul>
+                
+                <ul class="aui-buttons rte-toolbar-group-link no-separator">
+                    <li class="toolbar-item" data-tooltip="插入链接 (Ctrl+K)">
+                        <a id="rte-button-link" class="toolbar-trigger aui-button" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="linkbrowserButton">
+                                <span class="icon icon-link "></span>
+                            <span class="trigger-text">链接</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-table no-separator">
+                    <li class="toolbar-item toolbar-dropdown" id="insert-table-dropdown">
+                        <div class="aui-dd-parent">
+                            <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-insert-table" data-tooltip="插入表格">
+                                    <span class="icon icon-table "></span>
+                                <span class="dropdown-text">表格</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+
+                            <div id="table-picker-container" class="hidden">
+                                <div class="table-picker-box" data-tooltip="按住 SHIFT键，创建无表头表格 。">
+                                    <div class="table-picker-background">
+                                        <div class="picker picker-cell"></div>
+                                        <div class="picker picker-heading heading"></div>
+                                        <div class="picker picker-selected-cell"></div>
+                                        <div class="picker picker-selected-heading heading"></div>
+                                    </div>
+                                    <p class="desc"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                                                                
+                
+                <ul class="aui-buttons rte-toolbar-group-insert no-separator">
+                    <li class="toolbar-item toolbar-dropdown" id="insert-menu">
+                        <div class="aui-dd-parent">
+                            <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-insert" data-tooltip="插入更多内容">
+                                    <span class="icon icon-insert "></span>
+                                <span class="dropdown-text">插入</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+
+                            <div id="insert-menu-options" class="aui-dropdown grouped hidden">
+                                <div class="grouped-dropdown-item">
+                                    <span class="assistive">Insert content</span>
+                                    <ul id="content-insert-list">
+                                        
+        
+        <li class="dropdown-item content-image" data-command="mceConfimage" data-tooltip="插入文件和图片 (Ctrl+M)">
+        <a id="rte-insert-image" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 文件和图片
+        </a>
+    </li>
+                                        
+        
+        <li class="dropdown-item content-link" data-control-id="linkbrowserButton" data-tooltip="插入链接 (Ctrl+K)">
+        <a id="rte-insert-link" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 链接
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-symbol" data-command="confCharmap" data-tooltip="Insert symbol">
+        <a id="rte-insert-symbol" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 符号
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-emoticon" data-command="mceEmotion" data-tooltip="插入表情">
+        <a id="rte-insert-emoticon" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 表情符号
+        </a>
+    </li>
+                                        
+        
+        <li class="dropdown-item content-wikimarkup" data-command="InsertWikiMarkup" data-tooltip="插入Wiki标记 (Ctrl+Shift+D)">
+        <a id="rte-insert-wikimarkup" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ Wiki标记
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-hr" data-command="InsertHorizontalRule" data-tooltip="插入水平线(----)">
+        <a id="rte-insert-hr" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 水平线
+        </a>
+    </li>
+                                                                                    
+        
+        <li class="dropdown-item content-tasklist" data-command="InsertInlineTaskListNoToggle" data-tooltip="插入任务列表 ( )">
+        <a id="rte-insert-tasklist" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 任务列表
+        </a>
+    </li>
+                                                                            </ul>
+                                </div>
+                                <div class="grouped-dropdown-item">
+                                    <span class="assistive">Insert macro</span>
+                                    <ul id="macro-insert-list">
+                                                                                                                                                                                <li class="dropdown-item macro-insertmention-button" data-macro-name="insertmention-button" data-tooltip="插入&#39;用户提及&#39;宏">
+        <a id="insertmention-button" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 用户提及
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-jiralink" data-macro-name="jiralink" data-tooltip="插入&#39;JIRA问题/过滤器&#39;宏">
+        <a id="jiralink" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ JIRA问题/过滤器
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-info" data-macro-name="info" data-tooltip="插入&#39;信息&#39;宏">
+        <a id="info" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 信息
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-status" data-macro-name="status" data-tooltip="插入&#39;状态&#39;宏">
+        <a id="status" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 状态
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-gallery" data-macro-name="gallery" data-tooltip="插入&#39;画廊&#39;宏">
+        <a id="gallery" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 画廊
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-toc" data-macro-name="toc" data-tooltip="插入&#39;目录&#39;宏">
+        <a id="toc" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 目录
+        </a>
+    </li>
+                                                                                                                            
+        
+        <li class="dropdown-item content-macro" data-command="mceConfMacroBrowser" data-tooltip="打开宏浏览器 (Ctrl+Shift+A)">
+        <a id="rte-insert-macro" class="item-link" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#">
+                <span class="icon "></span>
+ 其它宏
+        </a>
+    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                                <ul class="aui-buttons rte-toolbar-group-page-layouts-section-types">
+                    <li id="pagelayout-menu" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-pagelayout" data-tooltip="页面布局">
+                                    <span class="icon icon-layout pagelayout-default">页面布局</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+
+                            <ul id="pagelayout-menu-options" class="aui-dropdown hidden">
+                                <li class="dropdown-item" data-tooltip="No layout">
+    <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-none&quot;, &quot;columns&quot;: 0   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-none">No layout</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="两栏 (简单)">
+    <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-simple">两栏 (简单)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="两栏 (简单，左侧栏)">
+    <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple-left&quot;, &quot;columns&quot;: [&quot;aside&quot;, &quot;large&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-simple-left">两栏 (简单，左侧栏)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="两栏 (简单，右侧栏)">
+    <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple-right&quot;, &quot;columns&quot;: [&quot;large&quot;, &quot;aside&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-simple-right">两栏 (简单，右侧栏)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="三栏 (简单)">
+    <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three-simple&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-three-simple">三栏 (简单)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="两栏">
+    <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two">两栏</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="两栏 (左侧栏)">
+    <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-left&quot;, &quot;columns&quot;: [&quot;aside&quot;, &quot;large&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-left">两栏 (左侧栏)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="两栏 (右侧栏)">
+    <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-right&quot;, &quot;columns&quot;: [&quot;large&quot;, &quot;aside&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-right">两栏 (右侧栏)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="三栏">
+    <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-three">三栏</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="三栏 (左边和右侧栏)">
+    <a href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three-sidebars&quot;, &quot;columns&quot;: [&quot;sidebars&quot;, &quot;large&quot;, &quot;sidebars&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-three-sidebars">三栏 (左边和右侧栏)</span>
+    </a>
+</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                
+                                                
+                <ul class="aui-buttons rte-toolbar-group-undo">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-undo" data-tooltip="回退 (Ctrl+Z)">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="undo">
+                <span class="icon icon-undo ">回退</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-redo" data-tooltip="重做 (Ctrl+Y)">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="redo">
+                <span class="icon icon-redo ">重做</span>
+        </a>
+    </li>
+                </ul>
+
+            </div>                                                                                                <div id="draft-status" style="display:none"></div>
+                            <div class="aui-toolbar2-secondary">
+                <ul class="aui-buttons rte-toolbar-group-searchreplace">
+                        <li class="toolbar-item aui-button" id="rte-button-searchreplace" data-tooltip="查找/替换">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="searchreplace">
+                <span class="icon icon-searchreplace ">查找/替换</span>
+        </a>
+    </li>
+                </ul>
+                <ul class="aui-buttons rte-toolbar-group-help">
+                        <li class="toolbar-item aui-button" id="rte-button-help" data-tooltip="帮助">
+        <a class="toolbar-trigger" href="http://confluence.ttpai.cn/pages/viewpage.action?pageId=6759479#" data-control-id="help">
+                <span class="icon icon-help ">键盘快捷方式帮助</span>
+        </a>
+    </li>
+                </ul>
+            </div>        </div>    </div>
+            
+
+<div id="editor-notifications-container">
+        <div id="editor-messages">
+        
+                
+<div id="heartbeat-div" class="hidden">
+    <div class="aui-message info closeable">
+            <span class="aui-icon icon-info"></span>
+        This page is also being edited by <span id="other-users-span"></span>. Your changes will be merged with theirs when you save.
+    </div>
+</div>
+
+    </div>
+    <div id="all-messages">
+        
+<div id="action-messages">
+                        </div>
+    </div>
+</div>
+<div id="editor-precursor">
+    <div class="cell">
+                <div id="content-title-div">
+            
+
+<div class="field-group
+    ">
+    <label id="content-title-label" for="content-title">
+    
+        </label>
+
+                <input type="text" name="title" id="content-title" value="app端和H5页面交互规范" tabindex="1" class="text   pagetitle" autocomplete="off" placeholder="Page title">
+                      </div>        </div>
+
+            </div>
+</div>    
+    <div id="wysiwyg">
+        <div id="rte" class="cell editor-default">
+            <textarea id="wysiwygTextarea" name="wysiwygContent" class="hidden tinymce-editor"></textarea>
+        </div>
+    </div>
+    <div id="editor-html-source-container" class="hidden">
+        <textarea id="editor-html-source" class="monospaceInput"></textarea>
+    </div>
+
+    <div id="preview">
+                        <div id="previewArea" class="cell">
+        </div>
+    </div>
+
+            
+
+<div id="savebar-container">
+    <div id="rte-savebar" class="aui-toolbar aui-toolbar2">
+                                            
+        
+        <div class="toolbar-split toolbar-split-row">
+                                                <div class="toolbar-split toolbar-split-left">
+                <div class="aui-buttons">
+                                                                                                                <button class="aui-button" type="button" data-tooltip="Edit page restrictions" id="rte-button-restrictions">
+                            <span class="icon icon-unrestricted"></span>
+                            <span class="trigger-text">未限制</span>
+                        </button>
+                                                                                            <button class="aui-button" type="button" data-tooltip="Edit page labels" id="rte-button-labels">
+                            <span class="icon icon-labels"></span>
+                            <span class="trigger-text">标签</span>
+                        </button>
+                                    </div>
+                        </div>
+                                                <div class="toolbar-split toolbar-split-right">
+
+                                                                <div class="aui-buttons" id="rte-savebar-tinymce-plugin-point"></div>
+
+                                <div class="aui-buttons">
+                    <span id="rte-spinner" class="toolbar-item">&nbsp;</span>
+                </div>
+                <div class="aui-buttons toolbar-group-edit assistive">
+                    <button id="rte-button-edit" class="aui-button" title="Return To edit Mode" type="button">
+                        <span class="trigger-text">编辑</span>
+                    </button>
+                </div>
+                <div class="aui-buttons toolbar-group-preview">
+                    <button class="aui-button toolbar-item" id="rte-button-preview" title="预览" type="button">
+                        <span class="trigger-text">预览</span>
+                    </button>
+                </div>
+
+                                <div class="save-button-container">
+                                                                                                                                <button class="aui-button aui-button-primary" type="submit" id="rte-button-publish" name="confirm" value="Save" title="保存">
+                                <span class="trigger-text">保存</span>
+                            </button>
+                                                            </div>
+                <button class="toolbar-item-link aui-button aui-button-link" type="submit" id="rte-button-cancel" value="cancel" name="cancel"><span class="trigger-text">取消</span></button>
+            </div>         </div>
+
+                    </div> </div>
+
+    
+    
+</div>
+
+
+
+<script type="text/x-template" title="dynamic-editor-metadata" id="dynamic-editor-metadata-template">
+            <meta name="ajs-min-editor-height" content="150">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-use-watch" content="true">
+            <meta name="ajs-editor-plugin-resource-prefix" content="/s/zh_CN/5788/8d283323cf97cb4a2448474b4477976f4ee8b2a6.1/5.7.4/_">
+            <meta name="ajs-auto-start" content="false">
+            <meta name="ajs-content-id" content="6759479">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-action-locale" content="zh_CN">
+            <meta name="ajs-user-watching-own-content" content="true">
+            <meta name="ajs-draft-share-id" content="">
+            <meta name="ajs-use-inline-tasks" content="true">
+            <meta name="ajs-heartbeat" content="true">
+            <meta name="ajs-version-comment" content="">
+            <meta name="ajs-draft-id" content="0">
+            <meta name="ajs-new-page" content="false">
+            <meta name="ajs-form-name" content="inlinecommentform">
+            <meta name="ajs-attachment-source-content-id" content="6759479">
+            <meta name="ajs-editor-mode" content="richtext">
+            <meta name="ajs-draft-type" content="page">
+            <meta name="ajs-existing-draft-id" content="0">
+            <meta name="ajs-can-attach-files" content="true">
+                
+            		    <meta name="ajs-max-thumb-width" content="300">
+		    <meta name="ajs-max-thumb-height" content="300">
+		    <meta name="ajs-can-send-email" content="true">
+		    <meta name="ajs-is-dev-mode" content="false">
+		    <meta name="ajs-draft-save-interval" content="30000">
+		    <meta name="ajs-show-hidden-user-macros" content="false">
+		    <meta name="ajs-is-admin" content="false">
+		    <meta name="ajs-confluence.prefs.editor.disable.autocomplete" content="false">
+		    <meta name="ajs-confluence.prefs.editor.disable.autoformat" content="false">
+		    <meta name="ajs-heartbeat-interval" content="30000">
+	
+    </script>
+
+
+<div id="hidden-permission-fields" class="hidden">
+    <input id="viewPermissionsUsers" type="text" name="viewPermissionsUsers" value="">
+    <input id="editPermissionsUsers" type="text" name="editPermissionsUsers" value="">
+    <input id="viewPermissionsGroups" type="text" name="viewPermissionsGroups" value="">
+    <input id="editPermissionsGroups" type="text" name="editPermissionsGroups" value="">
+</div>
+
+<script type="text/x-template" title="tableForm" id="table-form-template">
+    <form id="tinymce-table-form" class="aui">
+        <div class="field-group">
+            <label for="rows">行</label>
+            <input id="rows" name="rows" type="text" size="3" autocomplete="off" value="{0}">
+        </div>
+        <div class="field-group">
+            <label for="cols">列</label>
+            <input id="cols" name="cols" type="text" size="3" autocomplete="off" value="{1}">
+        </div>
+        <div class="field-group hidden">
+            <input id="width" type="hidden" name="width" value="">
+            <label for="width">宽</label>
+        </div>
+        <div class="group">
+            <div class="checkbox">
+                <input id="table-heading-checkbox" class="checkbox" type="checkbox" name="heading" checked="checked" value="true">
+                <label for="table-heading-checkbox">首行设为表头</label>
+            </div>
+        </div>
+        <div class="group hidden">
+            <div class="checkbox">
+                <input id="table-equal-width-columns-checkbox" class="checkbox" type="checkbox" name="equal-width-columns" value="false">
+                <label for="table-equal-width-columns-checkbox">等宽列</label>
+            </div>
+        </div>
+    </form>
+</script>
+<input type="hidden" name="draftId" value="0" id="draftId"><input type="hidden" name="originalVersion" value="43" id="originalVersion">    <input type="hidden" name="atl_token" value="d1ad49f892ba0eb0ffb782c1016e176a84b1160a">
+</div></body></html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>在超链接中使用事件</title>
+		<meta http-equiv="content-type" content="text/html;charset=gb2312">
+		<script type="text/javascript" language="javascript">
+	<!--
+	//多添加几个换行，让效果明显
+	for (var i=0;i<100;i++){
+		document.write("<br>");
+	}
+	-->
+	</script>
+	</head>
+	<body>
+	<a onclick="alert('您单击了第二个超链接')">第1个超链接</a><br>
+	<a href="#" onclick="alert('您单击了第二个超链接')">第2个超链接</a>
+	<br>
+		<a href="javascript:alert('您单击了第三个超链接')">第3个超链接</a>
+	<br>
+	</body>
+</html>
