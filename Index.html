@@ -309,10 +309,12 @@
       })
     })
 
-    //获取状态栏高度
+    //获取用户信息
 	$(".getUserInfo").on("click", function getUserInfo() {
 	  alert("111111");
-      var result = window.bridge.getUserInfo(function (result) {
+      var result = window.bridge.getUserInfo({
+        infoType: "userInfo"
+      }, function (result) {
         showResult(result)
       })
     })
