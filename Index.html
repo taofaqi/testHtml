@@ -134,6 +134,10 @@
                 <div class="box col-sm-6 col-xs-6 col-lg-6 col-md-6">
                     <div class="mg-10 btn btn-lg btn-success getUserInfo">获取用户信息</div>
                 </div>
+				
+				<div class="box col-sm-6 col-xs-6 col-lg-6 col-md-6">
+                    <div class="mg-10 btn btn-lg btn-success appRouter8">打开竞拍大厅</div>
+                </div>
             </div>
         </div>
     </div>
@@ -416,16 +420,24 @@
         showResult("打开成功")
       })
     })
-    $(".appRouter6").on("click", function appRouter5() {
+    $(".appRouter6").on("click", function appRouter6() {
       var result = window.bridge.appRouter({
         "url": "ttpaidea://dealer/member_level"
       }, function () {
         showResult("打开成功")
       })
     })
-    $(".appRouter7").on("click", function appRouter5() {
+    $(".appRouter7").on("click", function appRouter7() {
       var result = window.bridge.appRouter({
         "url": "ttpaidea://dealer/voucher"
+      }, function () {
+        showResult("打开成功")
+      })
+    })
+	
+	$(".appRouter8").on("click", function appRouter8() {
+      var result = window.bridge.appRouter({
+        "url": "ttpaidea://dealer/home"
       }, function () {
         showResult("打开成功")
       })
