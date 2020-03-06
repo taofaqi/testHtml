@@ -438,7 +438,7 @@
 	$(".appRouter8").on("click", function appRouter8() {
       var result = window.bridge.appRouter({
         "url": "ttpaidea://dealer/home",
-		"biddingHallFilterData": "{
+		"biddingHallFilterData": {
         "successfullBidCars": 0,
         "operateAdminId": 288528,
         "publishDate": 1574059302000,
@@ -476,7 +476,7 @@
         "extensionType": 1,
         "successfullBidCarsStr": "您有|0|辆车待进行确认",
         "extensionThumbnailUrl": "http://pic001.ttpaicdn.com/images/T1OX_TBQDg1RXrhCrK.jpg"
-      }",
+      },
 		"finish":"true"
       }, function () {
         showResult("打开成功")
