@@ -306,9 +306,9 @@
       })
     })
     //获取状态栏高度
-	$(".getScreenInfo").on("click", function getStatusBarHeight() {
+	$(".getScreenInfo").on("click", function getScreenInfo() {
 	  alert("111111");
-      var result = window.bridge.getStatusBarHeight(function (result) {
+      var result = window.bridge.getScreenInfo(function (result) {
         showResult(result)
       })
     })
