@@ -128,7 +128,7 @@
                 </div>
 
                 <div class="box col-sm-6 col-xs-6 col-lg-6 col-md-6">
-                    <div class="mg-10 btn btn-lg btn-success getStatusBarHeight">获取状态栏高度</div>
+                    <div class="mg-10 btn btn-lg btn-success getScreenInfo">获取状态栏高度</div>
                 </div>
 
                 <div class="box col-sm-6 col-xs-6 col-lg-6 col-md-6">
@@ -306,7 +306,7 @@
       })
     })
     //获取状态栏高度
-	$(".getStatusBarHeight").on("click", function getStatusBarHeight() {
+	$(".getScreenInfo").on("click", function getStatusBarHeight() {
 	  alert("111111");
       var result = window.bridge.getStatusBarHeight(function (result) {
         showResult(result)
