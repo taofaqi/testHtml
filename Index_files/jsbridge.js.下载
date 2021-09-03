@@ -25,7 +25,7 @@
     var _isiOSApp = !!(/iPhone|iPad|iPod/i.test(ua) && _isTTpai && _ttpaiWKModel)
     var _toStr = Object.prototype.toString
     var _slice = Array.prototype.slice
-    var apiList = ["refreshPage", "updateTitle", "updateShareButton",  "closePage", "getAppVersion","goAppLogin","getAppToken","openH5Screen","appRouter","showLoading","getScreenInfo","getUserInfo"]
+    var apiList = ["refreshPage", "updateTitle", "updateShareButton",  "closePage", "getAppVersion","goAppLogin","getAppToken","openH5Screen","appRouter","showLoading","getScreenInfo","getUserInfo","setWebInfoToApp","getAppInfoToWeb"]
 
     /**
      * _isString 检查任意一个值是否为 string 类型
