@@ -30,6 +30,7 @@
       transform: translate(-50%, -50%);
     }
 
+
     </style>
 </head>
 <body>
@@ -134,9 +135,15 @@
                 <div class="box col-sm-6 col-xs-6 col-lg-6 col-md-6">
                     <div class="mg-10 btn btn-lg btn-success getUserInfo">获取用户信息</div>
                 </div>
-				
-				<div class="box col-sm-6 col-xs-6 col-lg-6 col-md-6">
+
+                <div class="box col-sm-6 col-xs-6 col-lg-6 col-md-6">
                     <div class="mg-10 btn btn-lg btn-success appRouter8">打开竞拍大厅</div>
+                </div>
+                <div class="box col-sm-6 col-xs-6 col-lg-6 col-md-6">
+                    <div class="mg-10 btn btn-lg btn-success setWebInfoToApp">Web端 发送到App的信息存储</div>
+                </div>
+                <div class="box col-sm-6 col-xs-6 col-lg-6 col-md-6">
+                    <div class="mg-10 btn btn-lg btn-success getAppInfoToWeb">获取App的信息发送给Web端</div>
                 </div>
             </div>
         </div>
@@ -323,6 +330,27 @@
       })
     })
 
+    //Web端 发送到App的信息并存储
+	$(".setWebInfoToApp").on("click", function setWebInfoToApp() {
+	  alert("111111");
+      var result = window.bridge.setWebInfoToApp({
+        "key_city": "上海",
+        "isStorage":1
+      }, function (result) {
+        showResult(result)
+      })
+    })
+
+    //获取App的信息发送给Web端
+	$(".getAppInfoToWeb").on("click", function getAppInfoToWeb() {
+	  alert("111111");
+      var result = window.bridge.getAppInfoToWeb({
+        "key": "key_city"
+      }, function (result) {
+        showResult(result)
+      })
+    })
+
 
 
     // 点击 "测试弹出框" 按钮
@@ -488,6 +516,7 @@
       })
     })
   })
+
 
 </script>
 
