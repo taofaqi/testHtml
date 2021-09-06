@@ -332,7 +332,6 @@
 
     //Web端 发送到App的信息并存储
 	$(".setWebInfoToApp").on("click", function setWebInfoToApp() {
-	  alert("111111");
       var result = window.bridge.setWebInfoToApp({
         "key_city": "上海",
         "isStorage":1
@@ -343,7 +342,6 @@
 
     //获取App的信息发送给Web端
 	$(".getAppInfoToWeb").on("click", function getAppInfoToWeb() {
-	  alert("111111");
       var result = window.bridge.getAppInfoToWeb({
         "key": "key_city"
       }, function (result) {
