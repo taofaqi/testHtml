@@ -324,7 +324,7 @@
 	$(".getUserInfo").on("click", function getUserInfo() {
 	  alert("111111");
       var result = window.bridge.getUserInfo({
-        userInfoType: "dealerId,token"
+        userInfoType: "dealerId,token,provinceName,provinceId,zoneName,zoneId,areaName,areaId"
       }, function (result) {
         showResult(result)
       })
